@@ -52,61 +52,83 @@ const releases=[
 
 ];
 
-document.body.innerHTML=head('SINGLES')+`
+let cards='';
 
-<main>
+releases.forEach(function(x){
 
-<h1 class="section-title">SINGLES</h1>
+  let button='VIEW LYRICS';
 
-<div class="grid">
+  if(x[3]==='#trilogy'){
 
-${releases.map((x)=>`
+    button='VIEW TRILOGY';
 
-<article class="card">
+  }else if(x[3].startsWith('ep.html')){
 
-<img src="assets/${x[2]}" alt="${x[0]} artwork">
+    button='VIEW RELEASE';
 
-<h2>${x[0]}</h2>
+  }
 
-<div class="year">RELEASED: ${x[1]}</div>
+  cards +=
 
-${x[4]?`<p class="note">${x[4]}</p>`:''}
+    '<article class="card">' +
 
-<p><a class="btn" href="${x[3]}">${x[3]==='#trilogy'?'VIEW TRILOGY':x[3].startsWith('ep.html')?'VIEW RELEASE':'VIEW LYRICS'}</a></p>
+    '<img src="assets/' + x[2] + '" alt="' + x[0] + ' artwork">' +
 
-</article>
+    '<h2>' + x[0] + '</h2>' +
 
-`).join('')}
+    '<div class="year">RELEASED: ' + x[1] + '</div>' +
 
-</div>
+    (x[4] ? '<p class="note">' + x[4] + '</p>' : '') +
 
-<section class="feature" id="trilogy">
+    '<p><a class="btn" href="' + x[3] + '">' + button + '</a></p>' +
 
-<img src="assets/all-it-takes-trilogy.jpg" alt="All It Takes - The Trilogy artwork">
+    '</article>';
 
-<div>
+});
 
-<div class="kicker">SPECIAL RELEASE · 2021</div>
+const trilogy =
 
-<h2 class="section-title" style="font-size:36px">ALL IT TAKES — THE TRILOGY</h2>
+  '<section class="feature" id="trilogy">' +
 
-<p>Three connected songs across LIONHEART, TERMINAL and SINGLES.</p>
+  '<img src="assets/all-it-takes-trilogy.jpg" alt="All It Takes - The Trilogy artwork">' +
 
-<p class="trilogy-links">
+  '<div>' +
 
-<a href="lyrics.html?release=lionheart&track=9">ALL IT TAKES <small>— LIONHEART</small></a><br>
+  '<div class="kicker">SPECIAL RELEASE · 2021</div>' +
 
-<a href="lyrics.html?release=terminal&track=13">STRIKE FROM THE ASHES (All It Takes - Part 2) <small>— TERMINAL</small></a><br>
+  '<h2 class="section-title" style="font-size:36px">ALL IT TAKES — THE TRILOGY</h2>' +
 
-<a href="single.html?id=4">OF SNOW AND ICE (All It Takes - Part 3) <small>— SINGLE</small></a>
+  '<p>Three connected songs across LIONHEART, TERMINAL and SINGLES.</p>' +
 
-</p>
+  '<p class="trilogy-links">' +
 
-</div>
+  '<a href="lyrics.html?release=lionheart&track=9">ALL IT TAKES <small>— LIONHEART</small></a><br>' +
 
-</section>
+  '<a href="lyrics.html?release=terminal&track=13">STRIKE FROM THE ASHES (All It Takes - Part 2) <small>— TERMINAL</small></a><br>' +
 
-</main>`+footer();
+  '<a href="single.html?id=4">OF SNOW AND ICE (All It Takes - Part 3) <small>— SINGLE</small></a>' +
+
+  '</p>' +
+
+  '</div>' +
+
+  '</section>';
+
+document.body.innerHTML =
+
+  head('SINGLES') +
+
+  '<main>' +
+
+  '<h1 class="section-title">SINGLES</h1>' +
+
+  '<div class="grid">' + cards + '</div>' +
+
+  trilogy +
+
+  '</main>' +
+
+  footer();
 
 </script>
 
