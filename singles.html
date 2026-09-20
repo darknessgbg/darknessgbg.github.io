@@ -28,17 +28,17 @@ const singlesReleases=[
 
 ['ENTER THE DARKNESS','2015','enter-the-darkness.jpg','ep.html?id=0','DEMO EP'],
 
-['MY JOURNEY ENDS WITHIN','2016','my-journey-ends-within.jpg','lyrics.html?release=lionheart&track=7','SINGLE'],
+['MY JOURNEY ENDS WITHIN','2016','my-journey-ends-within.jpg','lyrics.html?release=lionheart&track=7','SINGLE','Niklas Sundin'],
 
-['LIONHEART','2016','lionheart-single.jpg','lyrics.html?release=lionheart&track=4','SINGLE'],
+['LIONHEART','2016','lionheart-single.jpg','lyrics.html?release=lionheart&track=4','SINGLE','Niklas Sundin'],
 
-['DOWN THROUGH THE GARDENS','2016','down-through-the-gardens.jpg','lyrics.html?release=lionheart&track=1','SINGLE'],
+['DOWN THROUGH THE GARDENS','2016','down-through-the-gardens.jpg','lyrics.html?release=lionheart&track=1','SINGLE','Niklas Sundin'],
 
 ['DAMNATION','2017','damnation.jpg','ep.html?id=1','DEMO EP'],
 
 ['THE IMMORTALS','2017','the-immortals.jpg','ep.html?id=2','COMPILATION EP'],
 
-['HARDSHIPS (feat. Tomas Lindberg)','2018','hardships.jpg','lyrics.html?release=terminal&track=4','SINGLE'],
+['HARDSHIPS (feat. Tomas Lindberg)','2018','hardships.jpg','lyrics.html?release=terminal&track=4','SINGLE','Emil Hermansson'],
 
 ['IN DEATH WE TRUST (feat. Tomas Lindberg)','2018','in-death-we-trust.jpg','single.html?id=2','SINGLE'],
 
@@ -48,7 +48,7 @@ const singlesReleases=[
 
 ['ALL IT TAKES — THE TRILOGY','2021','all-it-takes-trilogy.jpg','#trilogy','SPECIAL RELEASE'],
 
-['ALL THAT AVAILS IS FLIGHT','2023','all-that-avails-is-flight.jpg','lyrics.html?release=inferno&track=1','SINGLE']
+['ALL THAT AVAILS IS FLIGHT','2023','all-that-avails-is-flight.jpg','lyrics.html?release=inferno&track=1','SINGLE','Emil Hermansson']
 
 ];
 
@@ -79,6 +79,7 @@ singlesReleases.forEach(function(x){
     '<div class="year">RELEASED: ' + x[1] + '</div>' +
 
     (x[4] ? '<p class="note">' + x[4] + '</p>' : '') +
+    (x[5] ? '<p class="note">Artwork by: ' + x[5] + '</p>' : '') +
 
     '<p><a class="btn" href="' + x[3] + '">' + button + '</a></p>' +
 
