@@ -1,0 +1,143 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>EP — Prevail In Darkness</title><link rel="stylesheet" href="style.css"></head><body><script src="site.js"></script><script>
+
+const eps=[
+
+{
+
+title:'ENTER THE DARKNESS',
+
+year:'2015',
+
+type:'DEMO EP',
+
+cover:'enter-the-darkness.jpg',
+
+art:'Mikael Rasmusson',
+
+spotify:'https://open.spotify.com/album/4tGDDbMZghYqmb6qF6rPEz?si=xfxrgKEaRs6nzDOba1xYuA&utm_source=copy-link',
+
+youtube:'https://youtube.com/playlist?list=PLr1MfuOF9ysdJzB0fHsy_8Emk3G6ai0Ga&si=yYK1ctxXxt_LJBYR',
+
+tracks:[
+
+['Lionheart','lyrics.html?release=lionheart&track=4'],
+
+['All It Takes','lyrics.html?release=lionheart&track=9'],
+
+['Punishment of Life','lyrics.html?release=lionheart&track=10'],
+
+['Free Will Sacrifice (Amon Amarth cover)',null]
+
+]
+
+},
+
+{
+
+title:'DAMNATION',
+
+year:'2017',
+
+type:'DEMO EP',
+
+cover:'damnation.jpg',
+
+art:'Emil Hermansson',
+
+spotify:'https://open.spotify.com/album/0LSIrafQ3HREJO68vqvStt?si=rtVlo80FSLaMeyKSHmoYjA&utm_source=copy-link',
+
+youtube:'https://youtube.com/playlist?list=PLr1MfuOF9yscKUUj8fVxPwi_1oLfwRfUy&si=0iLfa8OnX1uWUyE1',
+
+tracks:[
+
+['The End is Mine','lyrics.html?release=terminal&track=11'],
+
+['Nothing Remains','lyrics.html?release=terminal&track=7'],
+
+['Strike from the Ashes','lyrics.html?release=terminal&track=13'],
+
+['Bullet Ride (In Flames cover)',null]
+
+]
+
+},
+
+{
+
+title:'THE IMMORTALS',
+
+year:'2017',
+
+type:'COMPILATION EP',
+
+cover:'the-immortals.jpg',
+
+art:'Emil Hermansson',
+
+spotify:'https://open.spotify.com/album/38AAaayF6wWcVkKkwvoTXJ?si=2_XtHqJjT76xpYRxVuYUow&utm_source=copy-link',
+
+youtube:'https://youtube.com/playlist?list=PLr1MfuOF9yseif8zJNQFHpRlXxnTdQBWU&si=DMuoag3zSQv6H38o',
+
+bandcamp:'https://darknessgbg.bandcamp.com/album/the-immortals-ep-2017',
+
+tracks:[
+
+['Blinded by Fear (At the Gates cover)',null],
+
+['Lost to Apathy (Dark Tranquillity cover)',null],
+
+['Bullet Ride (In Flames cover)',null],
+
+['Free Will Sacrifice (Amon Amarth cover)',null]
+
+]
+
+}
+
+];
+
+const id=Math.max(0,Math.min(2,parseInt(new URLSearchParams(location.search).get('id')||'0')));
+
+const e=eps[id];
+
+document.title=`${e.title} — Prevail In Darkness`;
+
+document.body.innerHTML=head('SINGLES')+`<main><section class="release-head">
+
+<img class="cover" src="assets/${e.cover}" alt="${e.title} artwork">
+
+<div>
+
+<div class="kicker">${e.type}</div>
+
+<h1>${e.title}</h1>
+
+<div class="meta">RELEASED: ${e.year}</div>
+
+<p style="margin:25px 0">
+
+<a class="btn" target="_blank" rel="noopener" href="${e.spotify}">LISTEN ON SPOTIFY ↗</a>
+
+</p>
+
+<p style="margin:25px 0">
+
+<a class="btn" target="_blank" rel="noopener" href="${e.youtube}">LISTEN ON YOUTUBE ↗</a>
+
+</p>
+
+${e.bandcamp?`<p style="margin:25px 0"><a class="btn" target="_blank" rel="noopener" href="${e.bandcamp}">FREE DOWNLOAD ON BANDCAMP ↗</a></p>`:''}
+
+<ol class="tracks">
+
+${e.tracks.map((t,i)=>`<li>${t[1]?`<a href="${t[1]}"><span class="num">${i+1}.</span><span>${t[0]}</span></a>`:`<div style="display:flex;gap:14px;padding:12px 4px"><span class="num">${i+1}.</span><span>${t[0]}</span></div>`}</li>`).join('')}
+
+</ol>
+
+<div class="credits"><strong>Artwork by:</strong> ${e.art}</div>
+
+</div>
+
+</section></main>`+footer();
+
+</script></body></html>
