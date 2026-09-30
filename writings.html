@@ -1,0 +1,213 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Writings — Prevail In Darkness</title>
+
+<meta name="description" content="Writings by W. Bergbacka.">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.writings{
+
+  max-width:1000px;
+
+  margin:0 auto;
+
+  padding:50px 20px 70px;
+
+  text-align:center;
+
+}
+
+.writings h1{
+
+  margin:0 0 10px;
+
+}
+
+.writings-intro{
+
+  opacity:.75;
+
+  margin:0 0 35px;
+
+}
+
+.writings-grid{
+
+  display:grid;
+
+  grid-template-columns:repeat(4,1fr);
+
+  gap:16px;
+
+}
+
+.writings-grid img{
+
+  width:100%;
+
+  display:block;
+
+  border:1px solid rgba(255,255,255,.14);
+
+  cursor:pointer;
+
+  transition:transform .2s ease;
+
+}
+
+.writings-grid img:hover{
+
+  transform:scale(1.02);
+
+}
+
+.lightbox{
+
+  display:none;
+
+  position:fixed;
+
+  z-index:9999;
+
+  inset:0;
+
+  background:rgba(0,0,0,.95);
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:20px;
+
+}
+
+.lightbox.open{
+
+  display:flex;
+
+}
+
+.lightbox img{
+
+  max-width:100%;
+
+  max-height:92vh;
+
+  object-fit:contain;
+
+}
+
+.lightbox-close{
+
+  position:absolute;
+
+  top:15px;
+
+  right:20px;
+
+  color:white;
+
+  font-size:38px;
+
+  cursor:pointer;
+
+}
+
+@media(max-width:720px){
+
+  .writings-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:10px;
+
+  }
+
+  .writings{
+
+    padding:35px 12px 60px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<script src="site.js"></script>
+
+<script>
+
+document.body.innerHTML=head('WRITINGS')+`
+
+<main class="writings">
+
+<h1>WRITINGS</h1>
+
+<p class="writings-intro">Words and visions by W. Bergbacka.</p>
+
+<div class="writings-grid">
+
+<img src="assets/writings-virus-version-2.jpg" alt="Virus Version 2" onclick="openWriting(this.src)">
+
+<img src="assets/writings-end2-version-2.jpg" alt="End2 Version 2" onclick="openWriting(this.src)">
+
+<img src="assets/writings-requiem.jpg" alt="Requiem" onclick="openWriting(this.src)">
+
+<img src="assets/writings-faceup8.jpg" alt="FaceUp8" onclick="openWriting(this.src)">
+
+<img src="assets/writings-deathlust.jpg" alt="Deathlust" onclick="openWriting(this.src)">
+
+<img src="assets/writings-shade.jpg" alt="Shade" onclick="openWriting(this.src)">
+
+<img src="assets/writings-virus15-version-1.jpg" alt="Virus Version 1" onclick="openWriting(this.src)">
+
+<img src="assets/writings-end2-version-1-2.jpg" alt="End2 Version 1.2" onclick="openWriting(this.src)">
+
+</div>
+
+</main>
+
+<div class="lightbox" id="writingLightbox" onclick="closeWriting()">
+
+<span class="lightbox-close">&times;</span>
+
+<img id="writingFull" alt="">
+
+</div>
+
+`+footer();
+
+function openWriting(src){
+
+  document.getElementById('writingFull').src=src;
+
+  document.getElementById('writingLightbox').classList.add('open');
+
+}
+
+function closeWriting(){
+
+  document.getElementById('writingLightbox').classList.remove('open');
+
+}
+
+</script>
+
+</body>
+
+</html>
